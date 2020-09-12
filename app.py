@@ -61,7 +61,11 @@ def init_service():
     except Exception as e:
         print(str(e))
 
+    print("call init_service")
 
+    init_service()
+
+    print("init_service completed, start app")
 
 @app.route('/', methods=['GET'])
 def registration():
