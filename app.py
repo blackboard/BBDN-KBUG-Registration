@@ -35,7 +35,7 @@ cache = Cache(app)
 
 PAGE_TITLE = 'Kansas BUG Registration'
 
-basic_oauth_service = None
+basic_oauth_service = RestAuthController.RestAuthController()
 
 class Password():
     def generate(self):
