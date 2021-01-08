@@ -92,7 +92,7 @@ def register():
         print(password)
 
         heavy_process = Process(  # Create a daemonic process with heavy "my_func"
-            target=executeRegistration, args=(given_name,family_name,email,company,job_title,track,password),
+            target=executeRegistration, args=(given_name,family_name,email,company,job_title,password),
             daemon=True
         )
         heavy_process.start()
@@ -111,7 +111,7 @@ def register():
         return render_template('confirmation.html', **tp_kwargs)
 
 
-def executeRegistration(given_name,family_name,email,company,job_title,track,password):
+def executeRegistration(given_name,family_name,email,company,job_title,password):
     
     global basic_oauth_service
     token = basic_oauth_service.getBasicToken()
