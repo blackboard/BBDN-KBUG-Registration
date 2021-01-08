@@ -33,7 +33,7 @@ app.wsgi_app = ReverseProxied(app.wsgi_app)
 
 cache = Cache(app)
 
-PAGE_TITLE = 'Kansas BUG Registration'
+PAGE_TITLE = 'Michigan BUG Registration'
 
 basic_oauth_service = RestAuthController.RestAuthController()
 
@@ -118,7 +118,7 @@ def executeRegistration(given_name,family_name,email,company,job_title,track,pas
         "userName": email,
         "password": password,
         "institutionRoleIds" : [
-            "kbug"
+            "mibug"
         ],
         "availability": {
             "available": "Yes"
@@ -138,7 +138,7 @@ def executeRegistration(given_name,family_name,email,company,job_title,track,pas
 
     devres = userCtrl.createLearnUser(user)
 
-    enrres = userCtrl.enrollUserInAllCourses("userName:" + email)
+    #enrres = userCtrl.enrollUserInAllCourses("userName:" + email)
 
 if __name__ == '__main__':
     
