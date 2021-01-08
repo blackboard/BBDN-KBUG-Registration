@@ -85,7 +85,6 @@ def register():
         family_name = form['lname']
         email = form['email']
         company = form['institution']
-        track = form['track']
         job_title = form['title']
         
         password = Password().generate()
