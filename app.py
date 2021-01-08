@@ -89,6 +89,8 @@ def register():
         job_title = form['title']
         
         password = Password().generate()
+        
+        print(password)
 
         heavy_process = Process(  # Create a daemonic process with heavy "my_func"
             target=executeRegistration, args=(given_name,family_name,email,company,job_title,track,password),
@@ -96,12 +98,16 @@ def register():
         )
         heavy_process.start()
 
+        print("heavy process started")
+
         tp_kwargs = {
             'page_title' : "Registration Confirmed!",
             'url': 'https://' + Config.config['learn_rest_url'],
             'username' : email,
             'password' : password
         }
+        
+        print(str(tp_kwargs))
         
         return render_template('confirmation.html', **tp_kwargs)
 
