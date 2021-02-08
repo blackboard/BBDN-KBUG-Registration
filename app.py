@@ -123,7 +123,10 @@ def executeRegistration(given_name,family_name,email,company,job_title,password)
         "userName": email,
         "password": password,
         "institutionRoleIds" : [
-            "mibug"
+            "k-bug-spring-21"
+        ],
+        "institutionRoleIds" : [
+            "kbug"
         ],
         "availability": {
             "available": "Yes"
@@ -143,7 +146,7 @@ def executeRegistration(given_name,family_name,email,company,job_title,password)
 
     devres = userCtrl.createLearnUser(user)
 
-    #enrres = userCtrl.enrollUserInAllCourses("userName:" + email)
+    enrres = userCtrl.enrollUserInCourse("userName:" + email)
 
 if __name__ == '__main__':
     

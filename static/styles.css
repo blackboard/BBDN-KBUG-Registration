@@ -3,8 +3,8 @@ body {font-family: "Open Sans", sans-serif;}
 
 /* Set a style for all buttons */
 button {
-  background-color: #222222;
-  color: white;
+  background-color: #eecb07;
+  color: #222222;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
@@ -137,7 +137,7 @@ hr {
 
 .logo-header {
     text-align:center;
-    background-color: #cccccc;
+    background-color: #eecb07;
 }
 
 .logo-header img {

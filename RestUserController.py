@@ -108,6 +108,38 @@ class RestUserController():
             else:
                 print("Error registering user <" + userId +"> for session <" + courseId + ">")
 
+    def enrollUserInCourse(self, userId):
+        
+        courseId = "_128_1"
+        
+        endpoint = 'https://' + self.target_url + '/learn/api/public/v1/courses/' + courseId + '/users/' + userId
+
+        print('[User:createLearnUser()] token: ' + self.token)
+        #"Authorization: Bearer $token"
+        authStr = 'Bearer ' + self.token
+        print('[User:createLearnUser()] authStr: ' + authStr)
+        
+        payload = {
+            "availability": {
+                "available": "Yes"
+            },
+            "courseRoleId": "Student"
+        }
+
+        print("[User:createLearnUser()] POST Request URL: " + endpoint)
+        print("[User:createLearnUser()] JSON Payload: NONE REQUIRED")
+        r = requests.put(endpoint, json=payload, headers={'Authorization':authStr, 'Content-Type' : 'application/json'},  verify=self.verify_certs)
+
+        print("[User:createLearnUser()] STATUS CODE: " + str(r.status_code) )
+        #print("[User:getUser()] RESPONSE:" + str(r.text))
+        if r.status_code == 201 and r.text:
+            res = json.loads(r.text)
+            print(json.dumps(res,indent=4, separators=(',', ': ')))
+        else:
+            print("[User:getUser()] RESPONSE:" + str(r.text))
+            print("Error registering user <" + userId +"> for session <" + courseId + ">")
+
+
     def getUserInfoFromLearn(self):
         OAUTH_URL = 'https://' + self.target_url + '/learn/api/public/v1/users/me'
 
