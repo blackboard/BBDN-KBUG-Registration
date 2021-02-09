@@ -53,6 +53,7 @@ class RestUserController():
             res = self.updateLearnUser(user)
             return(res)
         else:
+            print("[User:getUser()] RESPONSE:" + str(r.text))
             return({ "http_status" : r.status_code, "result" : r.text })
     
     def updateLearnUser(self,user):
