@@ -111,7 +111,7 @@ class RestUserController():
 
     def enrollUserInCourse(self, userId):
         
-        courseId = "_128_1"
+        courseId = "_866_1"
         
         endpoint = 'https://' + self.target_url + '/learn/api/public/v1/courses/' + courseId + '/users/' + userId
 

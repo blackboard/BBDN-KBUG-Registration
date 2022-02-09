@@ -122,9 +122,6 @@ def executeRegistration(given_name,family_name,email,company,job_title,password)
     user = {
         "userName": email,
         "password": password,
-        #"systemRoleIds" : [
-        #    "k-bug-spring-21"
-        #],
         "institutionRoleIds" : [
             "kbug"
         ],
