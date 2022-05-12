@@ -19,6 +19,8 @@ class RestUserController():
         
         self.target_url = target_url
         self.token = token
+
+        self.courseId = "_866_1"
         
         if Config.config['verify_certs'] == 'True':
             self.verify_certs = True
@@ -110,10 +112,8 @@ class RestUserController():
                 print("Error registering user <" + userId +"> for session <" + courseId + ">")
 
     def enrollUserInCourse(self, userId):
-        
-        courseId = "_866_1"
-        
-        endpoint = 'https://' + self.target_url + '/learn/api/public/v1/courses/' + courseId + '/users/' + userId
+               
+        endpoint = 'https://' + self.target_url + '/learn/api/public/v1/courses/' + self.courseId + '/users/' + userId
 
         print('[User:createLearnUser()] token: ' + self.token)
         #"Authorization: Bearer $token"
@@ -138,7 +138,7 @@ class RestUserController():
             print(json.dumps(res,indent=4, separators=(',', ': ')))
         else:
             print("[User:getUser()] RESPONSE:" + str(r.text))
-            print("Error registering user <" + userId +"> for session <" + courseId + ">")
+            print("Error registering user <" + userId +"> for session <" + self.courseId + ">")
 
 
     def getUserInfoFromLearn(self):
